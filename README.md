@@ -1,11 +1,9 @@
-# typescript-sandbox
 
-Para la parte de cada módulo en la que te planteamos ejercicios con JavaScript puedes usar este sandbox.
 
-Pasos:
+Ejercico laboratorio 4 de funciones.
 
-- Clonate el proyecto.
-- Instala las dependencias con `npm install`.
-- Ejecuta el sandbox con `npm run dev`.
-- Abre el navegador en `http://localhost:5173/` (si ese puerto no te funciona, mira en la consola donde has hecho el build, puede que este ocupado y se haya abierto en otro puerto).
-- Puedes empezar a meter tu código en el fichero:
+- Se trata de crear un  marcador de turnos en el que puedas avanzar,atrasar o resetear el marcador numéricamente.
+
+- Como reto adicionale puedes añadir el poder introducir mediante un input el número de turno a mano.
+
+- También como reto adicional puedes hacer que los número se vean siempre con un cero delante cuando es menos que una decena.
