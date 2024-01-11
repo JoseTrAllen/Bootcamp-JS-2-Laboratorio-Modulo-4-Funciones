@@ -1,33 +1,68 @@
 let contador: any = 0;
-
-const numeroTurno = (document.getElementById("numero-turno") as HTMLElement);
-const botonAnterior = (document.getElementById("anterior") as HTMLButtonElement);
-const botonReset = (document.getElementById("reset") as HTMLButtonElement);
-const botonSiguiente = (document.getElementById("siguiente") as HTMLButtonElement);
+const numeroTurno = document.getElementById("numero-turno");
+console.log(typeof numeroTurno);
 
 
-botonAnterior.addEventListener("click", () => {
+//RESTAR UN TURNO 
+function anteriorButton () {
   contador--;
-  numeroTurno.innerHTML = contador.toString();
-})
+  if (numeroTurno !== undefined && numeroTurno !== null) {
+    numeroTurno.innerHTML = contador.toString().padStart(2, "0");
+  }
+}
 
-botonReset.addEventListener("click", () => {
+const botonAnterior = document.getElementById("anterior");
+
+if (botonAnterior !== undefined && botonAnterior !== null) {
+  botonAnterior.addEventListener("click", anteriorButton);
+}
+
+//RESETEAR TURNO A CERO
+function resetbutton() {
   contador = 0;
-  numeroTurno.innerHTML = contador.toString().padStart(2, "0");
-})
+  if (numeroTurno !== undefined && numeroTurno !== null) {
+    numeroTurno.innerHTML = contador.toString().padStart(2, "0");
+  }
+}
 
-botonSiguiente.addEventListener("click", () => {
+const botonReset = document.getElementById("reset");
+
+if (botonReset !== undefined && botonReset !== null) {
+  botonReset.addEventListener("click", resetbutton);
+}
+
+//AÑADIR UN TURNO
+function siguientebutton () {
   contador++;
-  numeroTurno.innerHTML = contador.toString().padStart(2, "0");
-})
+  if (numeroTurno !== undefined && numeroTurno !== null) {
+    numeroTurno.innerHTML = contador.toString().padStart(2, "0");
+  }
+}
 
+const botonSiguiente = document.getElementById("siguiente");
+
+if (botonSiguiente !== undefined && botonSiguiente !== null) {
+  botonSiguiente.addEventListener("click", siguientebutton);
+}
+
+//INTRODUCIR NUMERO EN INPUT
 function turnoManual () {
   const inputTurnoManual = (document.getElementById("turno-manual") as HTMLInputElement).value;
-  numeroTurno.innerHTML = inputTurnoManual.toString().padStart(2, "0");
-  if (inputTurnoManual) { // Este if hace que al introducir un número manualmente al darle siguiente o anterior parta desde el número introducido.
+  if (numeroTurno !== undefined && numeroTurno !== null) {
+    numeroTurno.innerHTML = inputTurnoManual.toString().padStart(2, "0");
+  }
+  if (inputTurnoManual) { // Este if hace que al introducir un número manualmente y darle a siguiente o anterior, parta desde el número introducido. De lo contrario el contador partiría de cero.
     contador = inputTurnoManual;
   }
 }
 
-const botonEnviarTurno = (document.getElementById("enviar-turno") as HTMLButtonElement);
-botonEnviarTurno.addEventListener("click", turnoManual);
+const botonEnviarTurno = document.getElementById("enviar-turno");
+if (botonEnviarTurno !== undefined && botonEnviarTurno !== null){
+  botonEnviarTurno.addEventListener("click", turnoManual);
+}
+
+
+
+
+
+
